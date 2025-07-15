@@ -1,0 +1,31 @@
+{
+	"name": "dyawhttpds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "awhttpls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"AW_P_RelURL": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().AW_P_RelURL",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

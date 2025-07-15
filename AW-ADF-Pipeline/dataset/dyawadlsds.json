@@ -1,0 +1,39 @@
+{
+	"name": "dyawadlsds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "awadlsls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"AW_P_SinkFolder": {
+				"type": "String"
+			},
+			"AW_P_SinkFileName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().AW_P_SinkFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().AW_P_SinkFolder",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
