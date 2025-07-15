@@ -1,0 +1,17 @@
+{
+	"name": "CreateViews",
+	"properties": {
+		"content": {
+			"query": "CREATE VIEW gold.vw_calendar\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-Calendar/',\nFORMAT='parquet') as q1;\n\nGO\n\nCREATE VIEW gold.vw_customers\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-Customers/',\nFORMAT='parquet') as q2;\n\nGO\n\nCREATE VIEW gold.vw_productSubcategories\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-ProductSubcategories/',\nFORMAT='parquet') as q3;\n\nGO\n\nCREATE VIEW gold.vw_products\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-Products/',\nFORMAT='parquet') as q4;\n\nGO\n\nCREATE VIEW gold.vw_returns\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-Returns/',\nFORMAT='parquet') as q5;\n\nGO\n\nCREATE VIEW gold.vw_sales\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-Sales/',\nFORMAT='parquet') as q6;\n\nGO\n\nCREATE VIEW gold.vw_territories\nAS\nSELECT * FROM OPENROWSET(BULK 'https://awadls5.dfs.core.windows.net/silver/AW-Territories/',\nFORMAT='parquet') as q7;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "AW-DB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

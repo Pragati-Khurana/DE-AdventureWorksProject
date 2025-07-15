@@ -1,0 +1,17 @@
+{
+	"name": "AW-CreateExternalTable",
+	"properties": {
+		"content": {
+			"query": "CREATE MASTER KEY\nENCRYPTION BY PASSWORD='Hello@14.';\n\nCREATE DATABASE SCOPED CREDENTIAL aw_credential\nWITH\n    IDENTITY = 'Managed Identity';\n\nCREATE EXTERNAL DATA SOURCE aw_source_gold\nWITH (\n    LOCATION = 'https://awadls5.dfs.core.windows.net/gold/',\n    CREDENTIAL = aw_credential\n);\n\nCREATE EXTERNAL FILE FORMAT aw_format_parquet\nWITH (\n    FORMAT_TYPE = PARQUET,\n    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'\n);\n\nCREATE EXTERNAL TABLE gold.ext_sales\nWITH (\n    LOCATION = 'ext_sales',\n    DATA_SOURCE = aw_source_gold,\n    FILE_FORMAT = aw_format_parquet\n)\nAS\n    SELECT * FROM gold.vw_sales;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "AW-DB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
