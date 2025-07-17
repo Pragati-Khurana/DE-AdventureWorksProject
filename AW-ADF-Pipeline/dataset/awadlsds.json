@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "products.csv",
-				"folderPath": "products",
+				"folderPath": "productsTesting",
 				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",

@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "anshlambaoldgit/Adventure-Works-Data-Engineering-Project/refs/heads/main/Data/AdventureWorks_Products.csv"
+				"relativeUrl": "Pragati-Khurana/DE-AdventureWorksProject/refs/heads/main/Data/AdventureWorks_Products.csv?token=GHSAT0AAAAAADHMYKWCWNNJLFO6TVPWXDEC2DZB54Q"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
