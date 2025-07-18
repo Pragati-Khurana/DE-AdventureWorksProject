@@ -45,3 +45,34 @@ The architecture follows the **Bronze → Silver → Gold** data lake pattern an
 - These external tables are exposed via **Azure Synapse Analytics Serverless SQL endpoint**, ready to be consumed by reporting tools like **Power BI**
 
 >  **Note**: Power BI report is not included but the Synapse endpoint is provided for direct reporting.
+
+## Data Used
+
+Sample `.csv` files based on Adventure Works dataset:
+
+- `Sales_2015.csv`
+- `Sales_2016.csv`
+- `Sales_2017.csv`
+- `Customers.csv`
+- `Products.csv`
+- `ProductSubCategories.csv`
+- `Calendar.csv`
+- `Territories.csv`
+- `Returns.csv`
+
+These files are hosted on GitHub and ingested using the ADF pipeline.
+
+---
+
+## Project Structure
+
+<pre lang="text"> adventure-works-data-engineering/
+│
+├── data-ingestion/
+│ └── adf-pipeline/ (Lookup + ForEach + Copy to Bronze)
+│
+├── data-transformation/
+│ └── databricks-notebook/ (Load from Bronze, transform, write to Silver)
+│
+├── data-modeling/
+│ └── synapse-scripts/ (Create views, external tables, write to Gold) </pre>
